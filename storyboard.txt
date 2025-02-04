@@ -1,0 +1,43 @@
+What: Given pictures of divers, classify what hand signal they're making.
+
+Why: Being underwater is dangerous. A robotic companion would be good to have for divers (i.e. not just
+enthusiasts but people who work underwater) in order to keep track of the diver and relay communications between them
+and individuals on land. If the diver has some limited air and needs to minimize how much they talk, one way they could
+communicate is through hand signals. This project seeks to automatically and reliably identify those signals in order to
+promote greater safety and communication.
+
+How: We plan to train a CNN to accomplish this. It will take in a picture of the diver and classify the signal they are making.
+
+Source of data: Caddian diver signal dataset http://www.caddian.eu//CADDY-Underwater-Gestures-Dataset.html
+
+Some challenges with the data:
+
+1. Some classes have significantly less samples than others.
+Solution: we may have to generate additional samples, perhaps through augmenting on existing samples.
+
+2. Some hand signals look extremely similar (more on this in the EDA notebook).
+Solution: may not be one
+
+3. Some pictures include an additional diver in the background.
+Solution: may not be one
+
+4. Real life underwater conditions vary, and different cameras could produce different colors. However, in this dataset,
+all the pictures look to be taken out of the same controlled environment, with the same color of water.
+Solution: augment on the training data to simulate different conditions.
+
+Things to think about for the presentation:
+Explain all the above.
+
+Ignoring model specifics, one thing that would be good to show is a side by side barchart showing % correctly and
+incorrectly classified for each class to illustrate which ones the model did well on and which ones it didn't. Follow
+this up with a confusion matrix possibly to get more specific.
+
+Think about how we can spend time tuning different hyperparameters to get accuracy just as good in less time (i.e. saving
+GPU costs).
+
+Produce a before/after pic of augmentation to show how we simulate different underwater conditions
+
+Produce a before/after pic of generating samples to balance class counts - bar graphs
+
+Why a CNN? Works well for spatial features like hand shapes.
+
